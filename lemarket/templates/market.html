@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MARKET</title>
+    <meta charset="UTF-8">
+    
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+        background: rgb(56, 55, 55);
+        
+      }  
+header {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right,rgb(172, 22, 172),rgb(80, 76, 76));
+  }
+  #logoAndNav {
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    height: 80%;
+    margin-top: 5px;
+  }
+  .madhead {
+    display: flex;
+    flex-direction: row;
+    position: inherit;
+    width: 100%;
+    height: inherit;
+    justify-content: space-between;
+    box-shadow: 0px 5px 4px 5px rgb(172, 22, 172);
+  }
+  #loginRegistry {
+      display: flex;
+      margin-top: 5px;
+      width: 40%;
+      height: 80%;
+      padding-top: 10px;
+      justify-content: end;
+  }
+  #logosi {
+    width: fit-content;
+    height: inherit;
+    font-size: x-large;
+    font-family: 'Impact';
+    margin-left: 5px;
+    margin-top: 3px;
+  }
+  #markethomecont {
+    padding-top: 10px;
+  }
+  .navigatorL {
+    font-size: large;
+    font-weight: 600;
+    font-style: oblique;
+    text-decoration: none;
+    color: black;
+    margin-left: 20px;
+}
+#navigatorMarket {
+    font-size: large;
+    font-weight: 600;
+    font-style: oblique;
+    text-decoration: none;
+    color: orangered;
+    margin-left: 20px;
+}
+.navigatorR {
+    font-size: large;
+    font-style: oblique;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+    margin-right: 20px;
+}
+.navigatorR:hover {
+    color: rgb(220,20,20)
+}
+.navigatorL:hover {
+    color: rgb(220,20,20)
+}
+#firstsection {
+    margin-top: 50px;
+    width: 100%;
+    height: 40%;
+}
+.addedAttribute {
+    margin-top: 50px;
+    width: fit-content;
+    height: fit-content;
+}
+.main {
+    position: absolute;
+    height: calc(100vh - 100px);
+    width: inherit;
+    top: 100px;
+    left: 0px;
+}
+#tablediv {
+  width: 100vw;
+  height: fit-content;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+.basedtable {
+  width: 50vw;
+  height: fit-content;
+  margin: auto;
+  border-collapse: collapse;
+  background-color: rgb(90, 87, 87);
+  border-radius: 5px;
+}
+.basedtable tr th {
+  border-bottom: 1px solid black;
+}
+.basedtable tbody tr td {
+  text-align: center;
+  font-family: sans-serif;
+  color: white;
+}
+.infobotan {
+  border:none;
+  background-color: darkcyan;
+  border-radius: 10px;
+}
+.infobotan:hover {
+  border:none;
+  background-color: rgb(31, 224, 224);
+  border-radius: 10px;
+}
+.buybotan {
+  border:none;
+  background-color: rgb(157, 168, 5);
+  border-radius: 10px;
+}
+.buybotan:hover {
+  border:none;
+  background-color: rgb(212, 226, 6);
+  border-radius: 10px;
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="madhead">
+        <div id="logoAndNav">
+          <p id="logosi"><strong>სათონისპურეთი</strong></p>
+          <div id="markethomecont">
+            <a class="navigatorL" href="{{ url_for('home_page') }}">Home</a>
+            <a id="navigatorMarket" href="">Market</a>
+          </div>
+        </div>
+        <div id="loginRegistry">
+            <a class="navigatorR" href="">Login</a>
+            <a class="navigatorR" href="">Register</a>
+        </div>
+      </div>
+    </header>
+    <div class="main">
+      <div id="tablediv">
+        <table class="basedtable">
+          <tr>
+            <th>ID</th>
+            <th>პურის სახეობა</th>
+            <th>ფასი</th>
+            <th>ხარისხი</th>
+            <th scope="col">ოპციები</th>
+          </tr>
+          <tbody>
+            {% for item in items %}
+              <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }} $</td>
+                <td>{{ item.quality }}</td>
+                <td>
+                  <button class="infobotan">მეტი ინფო</button>
+                  <button class="buybotan">ყიდვა</button>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
