@@ -7,7 +7,10 @@
     <style>
       body {
     width: 100vw;
-    height: 100vw;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
     background-color: rgb(56, 55, 55);
 }
 header {
@@ -21,7 +24,7 @@ header {
   #logoAndNav {
     display: flex;
     flex-direction: row;
-    width: 40%;
+    width: 50%;
     height: 80%;
     margin-top: 5px;
   }
@@ -83,10 +86,29 @@ header {
 .navigatorR:hover {
   color: rgb(220, 20, 20);
 }
-#firstsection {
-    margin-top: 50px;
-    width: 100%;
-    height: 40%;
+.main {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 50px;
+    width: 100vw;
+    height: 100vh;
+}
+.registerForm {
+  background-color: rgb(122, 120, 120);
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  margin-top: 60px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 0px 3px 3px black;
+}
+.registerfail {
+  color: rgb(134, 38, 38);
+  size: large;
+  font-family: Impact;
 }
     </style>
   </head>
@@ -106,5 +128,25 @@ header {
         </div>
       </div>
     </header>
+    <div class="main">
+      <form method="POST" class="registerForm">
+        {{ usableForm.hidden_tag() }}
+        <h1>Register now !!</h1>
+        {{ usableForm.username.label() }}
+        {{ usableForm.username(placeholder="Username") }}
+        {{ usableForm.email.label() }}
+        {{ usableForm.email(placeholder="E-mail") }}
+        {{ usableForm.password1.label() }}
+        {{ usableForm.password1(placeholder="Password") }}
+        {{ usableForm.password2.label() }}
+        {{ usableForm.password2(placeholder="Confirm password") }}
+        {{ usableForm.submit() }}
+        {% if registerfailed %}
+          <p class="registerfail">Passwords don't match or username tooked >:(</p>
+        {% else %}
+          <p class="registerfail"></p>
+        {% endif %}
+      </form>
+    </div>
   </body>
 </html>
