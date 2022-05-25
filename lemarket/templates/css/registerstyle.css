@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Register page</title>
-    <meta charset="UTF-8">
-    <link ... href="{{ url_for('static', filename='../templates/css/.css') }}" />
-    <style>
-       body {
+body {
     width: 100vw;
     padding: 0;
     margin: 0;
@@ -101,7 +94,7 @@ header {
   width: 480px; 
   height: 500px;
   display: flex;
-  align-items: center; 
+  align-items: center; /* <3 */
   flex-direction: column;
   justify-content: space-evenly;
   background-color: white;
@@ -165,52 +158,4 @@ header {
   background-color: white;
   border-top-left-radius: 80%;
   border-bottom-left-radius: 80%;
-} 
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="madhead">
-        <div id="logoAndNav">
-          <p id="logosi"><strong>სათონისპურეთი</strong></p>
-          <div id="markethomecont">
-            <a class="navigatorL" href="{{ url_for('home_page') }}">Home</a>
-            <a class="navigatorL" href="{{ url_for('market') }}">Market</a>
-          </div>
-        </div>
-        <div id="loginRegistry">
-            <a class="navigatorR" href="">Login</a>
-            <a id="navigatorRegister" href="">Register</a>
-        </div>
-      </div>
-    </header>
-    <div class="main">
-      <div class="formParent">
-        <div id="joinUs">
-          <h2>Join now</h2>
-          <p> pushin p all day all night yall know we got dat grind hell yeah shawty</p>
-          <button id="aboutBot">About us</button>
-        </div>
-        <div id="inbetweenovalthing"></div>
-        <div class="formContainer">
-          <form method="POST" class="registerForm">
-            {{ usableForm.hidden_tag() }}
-            <h1>Register now !!</h1>
-            {{ usableForm.username(placeholder="Username") }}
-            {{ usableForm.email(placeholder="E-mail") }}
-            {{ usableForm.password1(placeholder="Password") }}
-            {{ usableForm.password2(placeholder="Confirm password") }}
-            <div id="submitBotContainer">
-              {{ usableForm.submit(id="submitBot") }}
-            </div>
-            {% if registerfailed %}
-              <p class="registerfail">Passwords don't match or username tooked >:(</p>
-            {% else %}
-              <p class="registerfail"></p>
-            {% endif %}
-          </form>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+}

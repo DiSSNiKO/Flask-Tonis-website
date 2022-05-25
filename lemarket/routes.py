@@ -35,5 +35,8 @@ def register_page():
     if form.errors!={}:
         registerfail = true
     return render_template('register.html', usableForm = form, registerfailed=registerfail)
+@webapp.route("/login", methods=["POST"])
+def logeen():
+    return render_template('login.html',)
 if __name__ == "__main__":
     webapp.run(debug=True)
