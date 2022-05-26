@@ -1,6 +1,7 @@
+from requests import session
 from sqlalchemy import true
 from lemarket import webapp
-from lemarket.forms import RegisterForm
+from lemarket.forms import LoginForm, RegisterForm
 from flask import render_template, redirect, url_for, flash
 from lemarket import db
 from lemarket.models import itemData, User
@@ -22,7 +23,6 @@ def market():
 def register_page():
     form = RegisterForm()
     registerfail = False
-    
     if form.validate_on_submit():
         print(f"wtf is this {isInDbase(form.username.data)}")
         if isInDbase(form.username.data)==False:
@@ -35,8 +35,18 @@ def register_page():
     if form.errors!={}:
         registerfail = true
     return render_template('register.html', usableForm = form, registerfailed=registerfail)
-@webapp.route("/login", methods=["POST"])
+@webapp.route("/login", methods=["GET","POST"])
 def logeen():
-    return render_template('login.html',)
+    form = LoginForm()
+    uname = form.username.data
+    upass = form.password.data
+    usercheck = User.query.filter_by(username=uname).first()
+    
+    if usercheck!=None and usercheck.password_hash==upass:
+        loggedinuser = User(username=usercheck.username, password_hash=usercheck.password_hash, email=usercheck.email, budget=usercheck.budget)
+        return render_template('/welcome.html', loggedinuser=loggedinuser)
+
+    return render_template('/login.html', loginform = form)
+
 if __name__ == "__main__":
     webapp.run(debug=True)

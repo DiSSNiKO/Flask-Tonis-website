@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HOUM PAGE</title>
+    <title>Welcome {{ loggedinuser.username }}</title>
     <meta charset="UTF-8">
     
     <style>
@@ -84,7 +84,7 @@ header {
 .navigatorR:hover {
   color: rgb(220, 20, 20);
 }
-#firstsection {
+.main {
     margin-top: 50px;
     width: 100%;
     height: 40%;
@@ -97,15 +97,17 @@ header {
         <div id="logoAndNav">
           <p id="logosi"><strong>სათონისპურეთი</strong></p>
           <div id="markethomecont">
-            <a id="navigatorHome" href="">Home</a>
-            <a class="navigatorL" href="{{ url_for('market') }}">Market</a>
+            
           </div>
         </div>
         <div id="loginRegistry">
-            <a class="navigatorR" href="{{ url_for('logeen') }}">Login</a>
-            <a class="navigatorR" href="{{ url_for('register_page') }}">Register</a>
+            <a class="navigatorR" href="{{ url_for('home_page') }}">Logout</a>
+            
         </div>
       </div>
     </header>
+    <div class="main">
+
+    </div>
   </body>
 </html>

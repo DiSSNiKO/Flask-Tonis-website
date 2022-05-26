@@ -18,4 +18,4 @@ class User(db.Model):
     budget = db.Column(db.Integer(), nullable=False, default=1000)
     items = db.relationship('itemData', backref='owned_by_user', lazy=True)
     def __repr__(self):
-        return f"user -> {self.username}"
+        return f"current user -> {self.username}"

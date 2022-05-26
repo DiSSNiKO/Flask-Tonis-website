@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Login</title>
+    <title>Register page</title>
     <meta charset="UTF-8">
-    
+    <link ... href="{{ url_for('static', filename='../templates/css/.css') }}" />
     <style>
-      body {
+       body {
     width: 100vw;
     padding: 0;
     margin: 0;
@@ -87,29 +87,90 @@ header {
   color: rgb(220, 20, 20);
 }
 .main {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    top: 50px;
+    margin-top: 80px;
     width: 100vw;
     height: 100vh;
 }
-.registerForm {
-  background-color: rgb(122, 120, 120);
-  width: 40%;
+.formParent {
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  display: flex;
+  padding-top: 100px;
+}
+.formContainer > form{
+  width: 480px; 
+  height: 300px;
+  display: flex;
+  align-items: center; 
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: white;
+}
+.formContainer > form input{
+  width: 400px;
+  height: 30px;
+  border-radius: 4px;
+  border: solid 1px gray;
+}
+#submitBot {
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: orange;
+  border: solid 1px orange;
+}
+#aboutBot {
+  height: 30px;
+  width: 90px;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  border: solid 1px rgb(255, 255, 255);
+}
+.formContainer > form h1 {
+  font-family: Helvetica;
+  text-align: center;
+  font-weight: 600;
+  
+}
+.formContainer > form label {
+  font-family: Impact;
+  text-align: center;
+  font-weight: 400;
+}
+#submitBotContainer {
+  width: 405px;
+  display: flex;
+  justify-content: flex-end;
+} 
+#joinUs {
+  width: 300px;
+  height: 300px;
   display: flex;
   flex-direction: column;
-  height: 70%;
-  margin-top: 60px;
-  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 50px;
+}
+#joinUs > h2 {
+  font-family: Helvetica;
+  color: white;
+}
+#joinUs > p {
+  font-family: Helvetica;
+  color: white;
   text-align: center;
-  box-shadow: 0px 0px 3px 3px black;
 }
-.registerfail {
-  color: rgb(134, 38, 38);
-  size: large;
-  font-family: Impact;
+#inbetweenovalthing {
+  width: 80px;
+  height: 300px;
+  background-color: white;
+  border-top-left-radius: 80%;
+  border-bottom-left-radius: 80%;
 }
+.formParent {
+  height: 300px;
+} 
     </style>
   </head>
   <body>
@@ -123,15 +184,28 @@ header {
           </div>
         </div>
         <div id="loginRegistry">
-            <a class="navigatorR" href="">Login</a>
+            <a class="navigatorR" href="{{ url_for('logeen') }}">Login</a>
             <a id="navigatorRegister" href="{{ url_for('register_page') }}">Register</a>
         </div>
       </div>
     </header>
     <div class="main">
-      <form method="POST" class="registerForm">
-        
-      </form>
+      <div class="formParent">
+        <div id="joinUs">
+          <h2>Join now</h2>
+          <p> pushin p all day all night yall know we got dat grind hell yeah shawty</p>
+          <button id="aboutBot">About us</button>
+        </div>
+        <div id="inbetweenovalthing"></div>
+        <div class="formContainer">
+          <form method="POST" class="registerForm">
+            <h1>Login</h1>
+            {{ loginform.username(placeholder="Username") }}
+            {{ loginform.password(placeholder="Password") }}
+            {{ loginform.submit(id="submitBot") }}
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
