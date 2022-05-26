@@ -1,4 +1,3 @@
-from requests import session
 from sqlalchemy import true
 from lemarket import webapp
 from lemarket.forms import LoginForm, RegisterForm
@@ -41,12 +40,13 @@ def logeen():
     uname = form.username.data
     upass = form.password.data
     usercheck = User.query.filter_by(username=uname).first()
-    
+    loginfail = False
     if usercheck!=None and usercheck.password_hash==upass:
         loggedinuser = User(username=usercheck.username, password_hash=usercheck.password_hash, email=usercheck.email, budget=usercheck.budget)
         return render_template('/welcome.html', loggedinuser=loggedinuser)
-
-    return render_template('/login.html', loginform = form)
-
+    elif uname!=None and upass!=None:
+        loginfail=True
+        print(uname, upass)
+    return render_template('/login.html', loginform = form, loginfail=loginfail)
 if __name__ == "__main__":
     webapp.run(debug=True)

@@ -203,6 +203,13 @@ header {
             {{ loginform.username(placeholder="Username") }}
             {{ loginform.password(placeholder="Password") }}
             {{ loginform.submit(id="submitBot") }}
+            <div style="width: 120px; height: 20px;">
+              {% if loginfail %}
+                <p style="color: rgb(216, 20, 20); margin: 0;">
+                  Incorrect user info
+                </p>
+              {% endif %}
+            </div>
           </form>
         </div>
       </div>
