@@ -38,7 +38,7 @@ def register_page():
 def logeen():
     form = LoginForm()
     uname = form.username.data
-    upass = form.password.data
+    upass = form.password.data 
     usercheck = User.query.filter_by(username=uname).first()
     loginfail = False
     if usercheck!=None and usercheck.password_hash==upass:
