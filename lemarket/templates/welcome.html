@@ -177,7 +177,7 @@
               
             }
             #postcontent {
-                margin-top: 25px;
+                
                 margin-left: 25px;
                 height: 100px;
                 width: 415px;
@@ -197,6 +197,12 @@
             #editpost:hover {
                 background-color: rgb(96, 192, 0);
                 cursor: pointer;
+            }
+            #username {
+              color: white;
+              margin-left: 30px;
+              width: fit-content;
+              border-bottom: 2px solid rgb(229, 255, 0);
             }
     </style>
   </head>
@@ -231,9 +237,12 @@
                   <div id="pfpstatic"></div>
                   <button id="editpost">EDIT</button>
               </div>
-              <p id="postcontent">
-                {{ i.content }}
-              </p>
+              <div>
+                <p id="username">{{ currentuser.username }}</p>
+                <p id="postcontent">
+                  {{ i.content }}
+                </p>
+              </div>
             </div>
           {% endfor %}
         </div>

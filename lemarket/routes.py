@@ -20,7 +20,8 @@ def simplesipher(str, siphermode):
 @webapp.route("/")
 @webapp.route("/home") 
 def home_page():
-    return render_template('home.html')
+    posts = postData.query.all()
+    return render_template('home.html', posts=posts)
 
 
 @webapp.route("/register", methods=["GET","POST"])

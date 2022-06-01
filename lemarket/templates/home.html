@@ -6,89 +6,193 @@
     
     <style>
       body {
-    width: 100vw;
-    height: 100vw;
-    background-color: rgb(56, 55, 55);
-    overflow: hidden;
-}
-header {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 50px;
-    background: linear-gradient(to right,rgb(172, 22, 172),rgb(80, 76, 76));
-  }
-  #logoAndNav {
-    display: flex;
-    flex-direction: row;
-    width: 40%;
-    height: 80%;
-    margin-top: 5px;
-  }
-  .madhead {
-    display: flex;
-    flex-direction: row;
-    position: inherit;
-    width: 100%;
-    height: inherit;
-    justify-content: space-between;
-    box-shadow: 0px 5px 4px 5px rgb(172, 22, 172);
-  }
-  #loginRegistry {
-      display: flex;
-      margin-top: 5px;
-      width: 40%;
-      height: 80%;
-      padding-top: 10px;
-      justify-content: end;
-  }
-  #logosi {
-    width: fit-content;
-    height: inherit;
-    font-size: x-large;
-    font-family: 'Impact';
-    margin-left: 5px;
-    margin-top: 3px;
-  }
-  #markethomecont {
-    padding-top: 10px;
-  }
-  .navigatorL {
-    font-size: large;
-    font-weight: 600;
-    font-style: oblique;
-    text-decoration: none;
-    color: black;
-    margin-left: 20px;
-}
-#navigatorHome {
-    font-size: large;
-    font-weight: 600;
-    font-style: oblique;
-    text-decoration: none;
-    color: orangered;
-    margin-left: 20px;
-}
-.navigatorL:hover {
-    color: rgb(220,20,20);
-}
-.navigatorR {
-    font-size: large;
-    font-style: oblique;
-    font-weight: 600;
-    text-decoration: none;
-    color: black;
-    margin-right: 20px;
-}
-.navigatorR:hover {
-  color: rgb(220, 20, 20);
-}
-#firstsection {
-    margin-top: 50px;
-    width: 100%;
-    height: 40%;
-}
+          width: 100vw;
+          height: 100vw;
+          background-color: rgb(56, 55, 55);
+          overflow: hidden;
+      }
+      header {
+          position: fixed;
+          left: 0px;
+          top: 0px;
+          width: 100%;
+          height: 50px;
+          background: linear-gradient(to right,rgb(172, 22, 172),rgb(80, 76, 76));
+        }
+        #logoAndNav {
+          display: flex;
+          flex-direction: row;
+          width: 40%;
+          height: 80%;
+          margin-top: 5px;
+        }
+        .madhead {
+          display: flex;
+          flex-direction: row;
+          position: inherit;
+          width: 100%;
+          height: inherit;
+          justify-content: space-between;
+          box-shadow: 0px 5px 4px 5px rgb(172, 22, 172);
+        }
+        #loginRegistry {
+            display: flex;
+            margin-top: 5px;
+            width: 40%;
+            height: 80%;
+            padding-top: 10px;
+            justify-content: end;
+        }
+        #logosi {
+          width: fit-content;
+          height: inherit;
+          font-size: x-large;
+          font-family: 'Impact';
+          margin-left: 5px;
+          margin-top: 3px;
+        }
+        #markethomecont {
+          padding-top: 10px;
+        }
+        .navigatorL {
+          font-size: large;
+          font-weight: 600;
+          font-style: oblique;
+          text-decoration: none;
+          color: black;
+          margin-left: 20px;
+      }
+      #navigatorHome {
+          font-size: large;
+          font-weight: 600;
+          font-style: oblique;
+          text-decoration: none;
+          color: orangered;
+          margin-left: 20px;
+      }
+      .navigatorL:hover {
+          color: rgb(220,20,20);
+      }
+      .navigatorR {
+          font-size: large;
+          font-style: oblique;
+          font-weight: 600;
+          text-decoration: none;
+          color: black;
+          margin-right: 20px;
+      }
+      .navigatorR:hover {
+        color: rgb(220, 20, 20);
+      }
+      #firstsection {
+          margin-top: 50px;
+          width: 100%;
+          height: 40%;
+      }
+      .main {
+        margin-top: 80px;
+        width: 100vw;
+        height: 100vh;
+        margin-left: 0px;
+        overflow-y: scroll;    
+      }
+      .postAndpfp {
+                background-color: rgb(0, 0, 0);
+                display: flex;
+                width: 500px;
+                height: 125px;
+                border-radius: 12px;
+                margin: auto;
+                margin-bottom: 50px;
+            }
+            #pfp {
+                background-color: aqua;
+                height: 55px;
+                width: 55px;
+                border-left: 2px solid rgb(0, 0, 0);
+                border-top: 2px solid rgb(0, 0, 0);
+            }
+            #pfpstatic {
+                background-color: rgb(229, 255, 0);
+                height: 55px;
+                width: 55px;
+                border-left: 2px solid rgb(0, 0, 0);
+                border-top: 2px solid rgb(0, 0, 0);
+            }
+            #posttext {
+                margin-left: 25px;
+                margin-top: 23px;
+                width: 415px;
+                height: 100px;
+
+            }
+            #posttextmain {
+                height: 30px;
+                width: 390px;
+                border-left-style: none;
+                border-right-style: none;
+                border-top-style: none;
+            }
+            #posttextmain:focus {
+                outline: none !important;
+                border-bottom-color: rgb(96, 192, 0);
+            }
+            #posttextmain:hover {
+                outline: none !important;
+                border-bottom-color: rgb(96, 192, 0);
+            }
+            #postbutton {
+                border-radius: 10px;
+                border-style: none;
+                background-color: rgb(0, 140, 255);
+                width: 195px;
+                height: fit-content;
+                font-size: x-large;
+                font-family: sans-serif;
+                text-align: center;
+                font-weight: 600;
+                color: white;
+                margin-left: 175px;
+                margin-top: 20px;
+            }
+            #postbutton:hover {
+                background-color: rgb(96, 192, 0);
+                cursor: pointer;
+            }
+            #userPosts {
+              margin-top: 50px;
+              width: 100vw;
+              height: fit-content;
+              
+            }
+            #postcontent {
+                
+                margin-left: 25px;
+                height: 100px;
+                width: 415px;
+                font-size: small;
+                color: white;
+                text-align: left;
+                font-family: Helvetica;
+            }
+            #editpost {
+                width: 55px;
+                height: 20px;
+                border-style: none;
+                margin-left: 2px;
+                margin-top: 20px;
+                font-family: helvetica;
+            }
+            #editpost:hover {
+                background-color: rgb(96, 192, 0);
+                cursor: pointer;
+            }
+            #username {
+              color: white;
+              margin-left: 30px;
+              width: fit-content;
+              border-bottom: 2px solid rgb(229, 255, 0);
+            }   
     </style>
   </head>
   <body>
@@ -105,6 +209,23 @@ header {
             <a class="navigatorR" href="{{ url_for('logeen') }}">Login</a>
             <a class="navigatorR" href="{{ url_for('register_page') }}">Register</a>
         </div>
+      </div>
+      <div class="main">
+        <div id="userPosts">
+          {% for post in posts %}
+            <div class="postAndpfp">
+              <div id="pfpandedit">
+                  <div id="pfpstatic"></div>
+                  <button id="editpost">EDIT</button>
+              </div>
+              <div>
+                <p id="username">{{ post.owner }}</p>
+                <p id="postcontent">
+                  {{ post.content }}
+                </p>
+              </div>
+            </div>
+          {% endfor %}
       </div>
     </header>
   </body>
