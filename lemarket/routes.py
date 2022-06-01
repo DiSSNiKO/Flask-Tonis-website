@@ -8,6 +8,15 @@ def isInDbase(newname):
         if user!=None:
             return True
         return False
+def simplesipher(str, siphermode):
+    newstring = ''
+    if siphermode.lower() == "encrypt":
+        for char in str:
+            newstring += chr(ord(char)+1)
+    elif siphermode.lower() == "decrypt":
+        for char in str:
+            newstring += chr(ord(char)-1)
+    return newstring
 @webapp.route("/")
 @webapp.route("/home") 
 def home_page():
@@ -40,7 +49,7 @@ def logeen():
     
     if usercheck!=None and usercheck.password_hash==upass:
         
-        return redirect(url_for('welcome_page', user=usercheck.id))
+        return redirect(url_for('welcome_page', user=simplesipher(usercheck.password_hash, "encrypt")))
     
     elif uname!=None and upass!=None:
         loginfail=True
@@ -51,7 +60,8 @@ def logeen():
 
 @webapp.route("/welcome/<user>", methods=["GET","POST"])
 def welcome_page(user):
-    currentuser = User.query.filter_by(id=user).first()
+    user = simplesipher(user, "decrypt")
+    currentuser = User.query.filter_by(password_hash=user).first()
     newpostform = postForm()
     newpostformtext = newpostform.content.data
     userposts = postData.query.filter_by(owner=currentuser.id)
