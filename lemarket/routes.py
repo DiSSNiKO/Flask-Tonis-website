@@ -69,7 +69,7 @@ def welcome_page(user):
     if newpostformtext!=None:
         if newpostformtext != '' and len(newpostformtext)>2:
             print(newpostformtext)
-            newpost = postData(content=newpostformtext, owner=currentuser.id)
+            newpost = postData(content=newpostformtext, owner=currentuser.id, ownername=currentuser.username)
             db.session.add(newpost)
             db.session.commit()
             newpostform.content.data = ''

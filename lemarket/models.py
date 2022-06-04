@@ -4,9 +4,9 @@ class postData(db.Model):  #SQL cxrili python klasis formashi
     id = db.Column(db.Integer(), primary_key=True)
     content = db.Column(db.String(length=200), nullable=False)
     owner = db.Column(db.Integer(), db.ForeignKey('user.id'))
+    ownername = db.Column(db.String(length=30), nullable=False)
     
 
- 
 class User(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(length=30), nullable=False, unique=True)
