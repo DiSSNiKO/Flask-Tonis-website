@@ -3,11 +3,15 @@ from lemarket.forms import LoginForm, RegisterForm, postForm
 from flask import render_template, redirect, url_for, flash
 from lemarket import db
 from lemarket.models import postData, User
+
+
 def isInDbase(newname):
         user = User.query.filter_by(username=newname).first()
         if user!=None:
             return True
         return False
+
+
 def simplesipher(str, siphermode):
     newstring = ''
     if siphermode.lower() == "encrypt":
@@ -17,6 +21,8 @@ def simplesipher(str, siphermode):
         for char in str:
             newstring += chr(ord(char)-1)
     return newstring
+
+
 @webapp.route("/")
 @webapp.route("/home") 
 def home_page():
@@ -40,6 +46,8 @@ def register_page():
     if form.errors!={}:
         registerfail = True
     return render_template('register.html', usableForm = form, registerfailed=registerfail)
+
+
 @webapp.route("/login", methods=["GET","POST"])
 def logeen():
     form = LoginForm() 
@@ -47,16 +55,13 @@ def logeen():
     upass = form.password.data
     usercheck = User.query.filter_by(username=uname).first()
     loginfail = False
-    
     if usercheck!=None and usercheck.password_hash==upass:
         
-        return redirect(url_for('welcome_page', user=simplesipher(usercheck.password_hash, "encrypt")))
-    
+        return redirect(url_for('welcome_page', user=simplesipher(usercheck.password_hash, "encrypt")))    
     elif uname!=None and upass!=None:
         loginfail=True
         print(uname, upass)
     return render_template('/login.html', loginform = form, loginfail=loginfail)
-
 
 
 @webapp.route("/welcome/<user>", methods=["GET","POST"])
@@ -75,7 +80,6 @@ def welcome_page(user):
             newpostform.content.data = ''
             newpostformtext = newpostform.content.data
     return render_template("/welcome.html", currentuser=currentuser, postcontent=newpostform, userposts=userposts)
-
 
 
 if __name__ == "__main__":
